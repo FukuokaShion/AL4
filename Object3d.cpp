@@ -459,7 +459,7 @@ void Object3d::CreateModel()
 
 	std::vector<VertexPosNormalUv> realVertices;
 	// 頂点座標の計算（重複あり）
-	{
+	//{
 		//	realVertices.resize((division + 1) * 2);
 		//	int index = 0;
 		//	float zValue;
@@ -486,10 +486,10 @@ void Object3d::CreateModel()
 		//		realVertices[index++].pos = vertex;
 		//	}
 		//	realVertices[index++].pos = XMFLOAT3(0, 0, zValue);	// 天面の中心点
-	}
+	//}
 
 	// 頂点座標の計算（重複なし）
-	{
+	//{
 		//	int index = 0;
 		//	// 底面
 		//	for (int i = 0; i < division; i++)
@@ -542,19 +542,19 @@ void Object3d::CreateModel()
 		//		vertices[index++] = realVertices[index1];
 		//		vertices[index++] = realVertices[index3];
 		//	}
-	}
+	//}
 
 	// 頂点インデックスの設定　
-	{
+	//{
 		//	for (int i = 0; i < _countof(indices); i++)
 		//	{
 		//		indices[i] = i;
 		//	}
-	}
+	//}
 
 	// 法線方向の計算
 //	for (int i = 0; i < _countof(indices) / 3; i++)
-	{
+	//{
 		//	// 三角形１つごとに計算していく
 		//	// 三角形のインデックスを取得
 		//	unsigned short index0 = indices[i * 3 + 0];
@@ -575,7 +575,7 @@ void Object3d::CreateModel()
 		//	XMStoreFloat3(&vertices[index0].normal, normal);
 		//	XMStoreFloat3(&vertices[index1].normal, normal);
 		//	XMStoreFloat3(&vertices[index2].normal, normal);
-	}
+	//}
 
 	//	UINT sizeVB = static_cast<UINT>(sizeof(vertices));
 	UINT sizeVB = static_cast<UINT>(sizeof(VertexPosNormalUv) * vertices.size());

@@ -483,7 +483,7 @@ void Object3d::CreateModel()
 	std::ifstream file;
 	//.objファイルを開く
 	//file.open("Resources/triangle_tex/triangle_tex.obj");
-	const std::string modelname = "box_mat";
+	const std::string modelname = "cube";
 	const std::string filename = modelname + ".obj";
 	const std::string directoryPath="Resources/"+modelname+"/";
 	file.open(directoryPath + filename);

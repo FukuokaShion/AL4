@@ -11,7 +11,7 @@ GameScene::GameScene()
 GameScene::~GameScene()
 {
 	delete spriteBG;
-	delete object3d;
+	delete planeObj;
 }
 void GameScene::Initialize(DirectXCommon* dxCommon, Input* input)
 {
@@ -29,8 +29,8 @@ void GameScene::Initialize(DirectXCommon* dxCommon, Input* input)
 	// 背景スプライト生成
 	spriteBG = Sprite::Create(1, { 0.0f,0.0f });
 	// 3Dオブジェクト生成
-	object3d = Object3d::Create();
-	object3d->Update();
+	planeObj = Object3d::Create();
+	planeObj->Update();
 
 
 	//弾の初期化
@@ -56,14 +56,14 @@ void GameScene::Update()
 	if (input->PushKey(DIK_UP) || input->PushKey(DIK_DOWN) || input->PushKey(DIK_RIGHT) || input->PushKey(DIK_LEFT))
 	{
 		// 現在の座標を取得
-		XMFLOAT3 position = object3d->GetPosition();
+		XMFLOAT3 position = planeObj->GetPosition();
 		// 移動後の座標を計算
 		if (input->PushKey(DIK_UP)) { position.y += 1.0f; }
 		else if (input->PushKey(DIK_DOWN)) { position.y -= 1.0f; }
 		if (input->PushKey(DIK_RIGHT)) { position.x += 1.0f; }
 		else if (input->PushKey(DIK_LEFT)) { position.x -= 1.0f; }
 		// 座標の変更を反映
-		object3d->SetPosition(position);
+		planeObj->SetPosition(position);
 	}
 	// カメラ移動
 	if (input->PushKey(DIK_W) || input->PushKey(DIK_S) || input->PushKey(DIK_D) || input->PushKey(DIK_A))
@@ -140,7 +140,7 @@ void GameScene::Update()
 		debugText.Print(sqherestr.str(), 50, 220, 1.0f);
 	}
 
-	object3d->Update();
+	planeObj->Update();
 }
 
 void GameScene::Draw()
@@ -164,7 +164,7 @@ void GameScene::Draw()
 	// 3Dオブジェクト描画前処理
 	Object3d::PreDraw(cmdList);
 	// 3Dオブクジェクトの描画
-	object3d->Draw();
+	planeObj->Draw();
 	/// <summary>
 	/// ここに3Dオブジェクトの描画処理を追加できる
 	/// </summary>

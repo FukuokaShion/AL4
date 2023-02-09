@@ -51,11 +51,13 @@ private: // メンバ変数
 	/// ゲームシーン用
 	/// </summary>
 	Sprite* spriteBG = nullptr;
-	Object3d* object3d = nullptr;
-
-	Sphere sphere;
+	Object3d* planeObj = nullptr;
+	Object3d* sphereObj = nullptr;
+	Object3d* triangleObj = nullptr;
 
 	Plane plane;
-
+	Sphere sphere;
 	Triangle triangle;
+
+
 };
